@@ -1,239 +1,113 @@
-// ============
-// 1-masala:
-//
 
-// ============
-// 2-masala:
-//
+let vazifa1 = fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "GET",
+})
+  .then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      throw new Error("Hatolik");
+    }
+  })
+  .then((data) => {
+    data.forEach((data) => {
+      let firItem = data.title;
+      let secondItem = data.body;
+      
+      console.log(`Title: ${firItem},
 
-// ============
-// 3-masala:
-//
+Body: ${secondItem}
 
-// ============
-// 4-masala:
-//
+`);
+    });
+  })
 
-// ============
-// 5-masala:
-//
+  .catch((error) => {
+    console.log(error);
+  });
 
-// ============
-// 6-masala:
-//
 
-// ============
-// 7-masala:
-//
+async function getRandomUser() {
+    const api = 'https://randomuser.me/api/';
+    try {
+        const response = await fetch(api);
 
-// ============
-// 8-masala:
-//
+        if (response.status !== 200) {
+            throw new Error("hatolik");
+        }
 
-// ============
-// 9-masala:
-//
+        const data = await response.json();
+        const user = data.results[0];
+        console.log(`2-masala:`);
+        console.log(`Ismi: ${user.name.first} ${user.name.last}`);
+        console.log(`Ismi: ${user.email}`);
+        console.log(`Ismi: ${user.location.street.name}`);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 
-// ============
-// 10-masala:
-//
+getRandomUser();
+async function getCovidStatistic() {
+    const api = "https://disease.sh/v3/covid-19/all"
+    try {
+        const response = await fetch(api)
+        if(response.status !== 200){
+            throw new Error("Xatolik")
+        }
+        const data = await response.json()
+        
+        const covid = data
+        
+        console.log(`Jami kasallanganlar (cases): ${covid.cases}`)
+        console.log(`Jami vafot etganlar (deaths): ${covid.deaths} `)
+        console.log(`Jami tuzalganlar (recovered): ${covid.recovered}`)
+    }catch(error) {
+        console.log(error)
+    }
+}
 
-// ============
-// 11-masala:
-//
+getCovidStatistic()
 
-// ============
-// 12-masala:
-//
 
-// ============
-// 13-masala:
-//
+async function getBtcPrice() {
+    const api = 'https://api.coindesk.com/v1/bpi/currentprice.json'
+    try{
+        const response = await fetch(api)
 
-// ============
-// 14-masala:
-//
+        if(response.status !== 200){
+            throw new Error('hatolik')
+        }
 
-// ============
-// 15-masala:
-//
+        const data = await response.json()
+        const price = data
 
-// ============
-// 16-masala:
-//
+        console.log(`BTC price (USD): ${price.bpi.USD.rate}`)
+        console.log(`BTC price (GBP): ${price.bpi.GBP.rate}`)
+        console.log(`BTC price (EUR): ${price.bpi.EUR.rate}`)
+    }catch(error){
+        console.log(error.message)
+    }
+}
 
-// ============
-// 17-masala:
-//
+getBtcPrice()
 
-// ============
-// 18-masala:
-//
+async function getWeatherForecast() {
+    const api = 'https://goweather.herokuapp.com/weather/ferghana'
 
-// ============
-// 19-masala:
-//
+    try{
+        const response = await fetch(api)
 
-// ============
-// 20-masala:
-//
+        if(response.status !== 200){
+            throw new Error('hatolik')
+        }
 
-// ============
-// 21-masala:
-//
+        const data = await response.json()
 
-// ============
-// 22-masala:
-//
+        console.log(`Havo harorati: ${data.temperature}`)
+    }catch(error){
+        console.log(error.message)
+    }
+}
 
-// ============
-// 23-masala:
-//
-
-// ============
-// 24-masala:
-//
-
-// ============
-// 25-masala:
-//
-
-// ============
-// 26-masala:
-//
-
-// ============
-// 27-masala:
-//
-
-// ============
-// 28-masala:
-//
-
-// ============
-// 29-masala:
-//
-
-// ============
-// 30-masala:
-//
-
-// ============
-// 31-masala:
-//
-
-// ============
-// 32-masala:
-//
-
-// ============
-// 33-masala:
-//
-
-// ============
-// 34-masala:
-//
-
-// ============
-// 35-masala:
-//
-
-// ============
-// 36-masala:
-//
-
-// ============
-// 37-masala:
-//
-
-// ============
-// 38-masala:
-//
-
-// ============
-// 39-masala:
-//
-
-// ============
-// 40-masala:
-//
-
-// ============
-// 41-masala:
-//
-
-// ============
-// 42-masala:
-//
-
-// ============
-// 43-masala:
-//
-
-// ============
-// 44-masala:
-//
-
-// ============
-// 45-masala:
-//
-
-// ============
-// 46-masala:
-//
-
-// ============
-// 47-masala:
-//
-
-// ============
-// 48-masala:
-//
-
-// ============
-// 49-masala:
-//
-
-// ============
-// 50-masala:
-//
-
-// ============
-// 51-masala:
-//
-
-// ============
-// 52-masala:
-//
-
-// ============
-// 53-masala:
-//
-
-// ============
-// 54-masala:
-//
-
-// ============
-// 55-masala:
-//
-
-// ============
-// 56-masala:
-//
-
-// ============
-// 57-masala:
-//
-
-// ============
-// 58-masala:
-//
-
-// ============
-// 59-masala:
-//
-
-// ============
-// 60-masala:
-//
+getWeatherForecast()
